@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Image } from 'react-native';
+import { ScrollView, SafeAreaView, StyleSheet, Image } from 'react-native';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Text, View } from '../../components/Themed';
 
@@ -23,12 +23,12 @@ function AlbumThumbnail(props: { name: string, size: number }) {
   const { name, size } = props;
   const imageSource = imageSources[name];
 
-  return <Image source={imageSource} style={{ width: size, height: size, borderBottomLeftRadius:5,borderTopLeftRadius:5 }}/>;
+  return <Image source={imageSource} style={{ width: size, height: size, borderRadius: 5 }}/>;
 }
 
 export default function TabOneScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Header */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Text style={styles.header}>Good afternoon</Text>
@@ -91,30 +91,40 @@ export default function TabOneScreen() {
           </View>
 
           <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="the_mountain" size={55}/>
-            <Text style={{fontWeight:'bold', marginLeft: 8, numberOfLines: 2 }}>The Mountain</Text>
+            <AlbumThumbnail name="vector" size={55}/>
+            <Text style={{fontWeight:'bold', marginLeft: 8 }}>Vector</Text>
           </View>
         </View>
 
         {/* Other album reccomendations */}
-
+    
         <Text style={[styles.header, {marginVertical: 20}]}>Made For Hunter</Text>
-        <View style={{flexDirection:'row'}}>
-
-        <View style={{marginRight:10}}>
-          <AlbumThumbnail name="virus" size={125}></AlbumThumbnail>
-          <Text style={{marginTop: 5, fontWeight: '500'}}>Virus</Text>
-          <Text style={{color: 'gray'}}>Album - Haken</Text>
-        </View>
-        <View>
-          <AlbumThumbnail name="vector" size={125}></AlbumThumbnail>
-          <Text style={{marginTop: 5, fontWeight: '500'}}>Vector</Text>
-          <Text style={{color: 'gray'}}>Album - Haken</Text>
-        </View>
-
-        </View>
+        <ScrollView horizontal style={{ flexDirection: 'row' }} showsHorizontalScrollIndicator={false}>
+          <View style={{ marginRight: 10 }}>
+            <AlbumThumbnail name="virus" size={125}></AlbumThumbnail>
+            <Text style={{ marginTop: 5, fontWeight: '500' }}>Virus</Text>
+            <Text style={{ color: 'gray' }}>Album - Haken</Text>
+          </View>
+          <View style={{ marginRight: 10 }}>
+            <AlbumThumbnail name="vector" size={125}></AlbumThumbnail>
+            <Text style={{ marginTop: 5, fontWeight: '500' }}>Vector</Text>
+            <Text style={{ color: 'gray' }}>Album - Haken</Text>
+          </View>
+          <View style={{ marginRight: 10 }}>
+            <AlbumThumbnail name="nightmare" size={125}></AlbumThumbnail>
+            <Text style={{ marginTop: 5, fontWeight: '500' }}>Nightmare</Text>
+            <Text style={{ color: 'gray' }}>Album - A7x</Text>
+          </View>
+          <View style={{ marginRight: 10, flexDirection: 'column' }}>
+            <AlbumThumbnail name="awaken" size={125}></AlbumThumbnail>
+            <View style={{maxWidth: 125}}>
+              <Text style={{ marginTop: 5, fontWeight: '500' }}>Awaken, My Love!</Text>
+              <Text style={{ color: 'gray' }} numberOfLines={2}>Album - Childish Gambino</Text>
+            </View>
+          </View>
+      </ScrollView>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
