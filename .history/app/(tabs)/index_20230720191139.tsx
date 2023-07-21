@@ -19,11 +19,11 @@ const imageSources = {
   vector: require('../../assets/images/albums/vector.png'),
 };
 
-function AlbumThumbnail(props: { name: string, size: number }) {
-  const { name, size } = props;
+function AlbumThumbnail(props: { name: string }) {
+  const { name } = props;
   const imageSource = imageSources[name];
 
-  return <Image source={imageSource} style={{ width: size, height: size, borderBottomLeftRadius:5,borderTopLeftRadius:5 }}/>;
+  return <Image source={imageSource} style={{ width: 75, height: 75, borderBottomLeftRadius:5,borderTopLeftRadius:5 }}/>;
 }
 
 export default function TabOneScreen() {
@@ -55,64 +55,34 @@ export default function TabOneScreen() {
       </View>
 
       {/* Suggested playlists/albums */}
-      <View style = {{width: "100%", marginTop: 25}}>
+      <View style = {{width: "100%", }}>
 
-        <View style = {{ flexDirection:'row',justifyContent: 'space-between',marginBottom: 7}}>
+        <View style = {{ flexDirection:'row',justifyContent: 'space-between',marginBottom: 20}}>
           <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="the_stage" size={55}/>
+            <AlbumThumbnail name="the_stage"/>
             <Text style={{fontWeight:'bold', marginLeft: 8}}>A7x</Text>
           </View>
 
           <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="virus" size={55}/>
+            <AlbumThumbnail name="virus"/>
             <Text style={{fontWeight:'bold', marginLeft: 8}}>Virus</Text>
           </View>
         </View>
 
-        <View style = {{ flexDirection:'row',justifyContent: 'space-between', marginBottom: 7}}>
+        <View style = {{ flexDirection:'row',justifyContent: 'space-between', marginBottom: 20}}>
           <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="nightmare" size={55}/>
-            <Text style={{fontWeight:'bold', marginLeft: 8}}>Nightmare</Text>
-          </View>
-
-          <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="the_mountain" size={55}/>
-            <Text style={{fontWeight:'bold', marginLeft: 8, numberOfLines: 2 }}>The Mountain</Text>
-          </View>
-        </View>
-
-        <View style = {{ flexDirection:'row',justifyContent: 'space-between', marginBottom: 12}}>
-          <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center', }}>
-            <AlbumThumbnail name="awaken" size={55}/>
-            <View style={{backgroundColor: 'rgb(31, 31, 31)'}}>
-              <Text style={{fontWeight:'bold', marginLeft: 8}}>Awaken,</Text>
-              <Text style={{fontWeight:'bold', marginLeft: 8}}>My Love!</Text>
-            </View>
+            <AlbumThumbnail name="the_stage"/>
+            <Text style={{fontWeight:'bold', marginLeft: 8}}>A7x</Text>
           </View>
 
           <View style={{backgroundColor: 'rgb(31, 31, 31)', borderRadius: 5, flexDirection: 'row', width: 175, alignItems: 'center'}}>
-            <AlbumThumbnail name="the_mountain" size={55}/>
-            <Text style={{fontWeight:'bold', marginLeft: 8, numberOfLines: 2 }}>The Mountain</Text>
+            <AlbumThumbnail name="virus"/>
+            <Text style={{fontWeight:'bold', marginLeft: 8}}>Virus</Text>
           </View>
         </View>
 
-        {/* Other album reccomendations */}
+        
 
-        <Text style={[styles.header, {marginVertical: 20}]}>Made For Hunter</Text>
-        <View style={{flexDirection:'row'}}>
-
-        <View style={{marginRight:10}}>
-          <AlbumThumbnail name="virus" size={125}></AlbumThumbnail>
-          <Text style={{marginTop: 5, fontWeight: '500'}}>Virus</Text>
-          <Text style={{color: 'gray'}}>Album - Haken</Text>
-        </View>
-        <View>
-          <AlbumThumbnail name="vector" size={125}></AlbumThumbnail>
-          <Text style={{marginTop: 5, fontWeight: '500'}}>Vector</Text>
-          <Text style={{color: 'gray'}}>Album - Haken</Text>
-        </View>
-
-        </View>
       </View>
     </SafeAreaView>
   );
