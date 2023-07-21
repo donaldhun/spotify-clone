@@ -1,4 +1,4 @@
 # spotify-clone
 Spotify iOS Frontend Clone
-# Spotify Frontend Clone
-Welcome
+
+This is my first project using React Native to get practice with front end design.
